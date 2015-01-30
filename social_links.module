@@ -1,0 +1,98 @@
+<?php
+
+/**
+ * @file
+ * Social links block made with Font Awesome.
+ */
+
+/**
+ * Defines a new permission
+ *
+ * Implements hook_permission().
+ */
+function social_links_permission() {
+  return array(
+    'configure social links' => array(
+      'title' => t('Configure social links'),
+      'description' => t("User can configure site's social links"),
+      'restrict access' => TRUE
+    ),
+  );
+}
+
+/**
+ * Implements hook_menu().
+ */
+function social_links_menu(){
+  $items = array();
+  
+  $items['admin/config/system/settings'] = array(
+    'title' => 'Social links block',
+    'description' => 'Configure social links block',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('social_links_admin_settings'),
+    'access arguments' => array('configure social links'),
+    'type' => MENU_NORMAL_ITEM,
+    'file' => 'social_links.admin.inc',
+  );
+
+  return $items;
+}
+
+/**
+ * Implements  hook_block_info().
+ */
+function social_links_block_info() {
+  $blocks['social_links_footer'] = array(
+      'info' => t('Social links footer'),
+      'cache' => DRUPAL_NO_CACHE,
+  );
+  return $blocks;
+}
+
+/**
+ * Implements  hook_block_view().
+ */
+function social_links_block_view($delta = '') {
+
+  $nets = array('twitter' => variable_get('social_links_twitter', ''),
+                'linkedin' => variable_get('social_links_linkedin', ''),
+                'delicious' => variable_get('social_links_delicious', ''),
+                'flickr' => variable_get('social_links_flickr', ''),
+                'vimeo' => variable_get('social_links_vimeo', ''),
+                'youtube' => variable_get('social_links_youtube', ''),
+                'slideshare' => variable_get('social_links_slideshare', ''));
+
+  $fa = array('twitter' => 'fa-twitter-square',
+              'linkedin' => 'fa-linkedin-square',
+              'delicious' => 'fa-delicious',
+              'flickr' => 'fa-flickr',
+              'vimeo' => 'fa-vimeo-square',
+              'youtube' => 'fa-youtube-square',
+              'slideshare' => 'fa-slideshare'); 
+
+  $template = '<a target="_blank" href="URL"><i class="fa FA_CLASS fa-2x"></i></a>';
+
+  $links = '';
+  foreach($nets as $network => $url) {
+    if(!empty($url)) {
+      $tmp = str_replace('URL', $url, $template);
+      $tmp = str_replace('FA_CLASS', $fa[$network], $tmp);
+      $links .= $tmp;
+    }
+  }
+
+  $block = array();
+  switch ($delta) {
+    case 'social_links_footer':
+          $block['subject'] = '';
+          $block['content'] = '
+          <div class="social-links-footer">
+          	  <label class="title">' . t('Follow us on...') . '</label>
+          	  <div class="fila">' . $links . '</div>
+          </div>
+          ';
+        break;
+  }
+  return $block;
+}

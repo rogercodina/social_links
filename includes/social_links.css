@@ -1,0 +1,62 @@
+/* http://stackoverflow.com/questions/24018051/2-vertical-background-colors-for-a-font-icon */
+
+.fa-twitter-square {
+	color: #25a8e0;
+}
+
+.fa-linkedin-square {
+	color:#127bb7;
+}
+
+.fa-delicious {        
+    color: white;
+	background-image: linear-gradient(to right, #2A96FF 50%, #000000 50%);
+	background-size: 80% 80%;
+	background-position: center;
+	background-repeat: no-repeat;
+	-ms-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);    
+}
+
+.fa-flickr {        
+    color: #e2e2e2;
+	background-image: linear-gradient(to right, #0062da 50%, #ff0084 50%);
+	background-size: 80% 80%;
+	background-position: center;
+	background-repeat: no-repeat;       
+}
+
+.fa-vimeo-square {
+	color: #1ab7ea;
+}
+
+.fa-youtube-square {
+	color: #ce322e;
+}
+
+.fa-slideshare {
+	color: white;
+	padding: 3px;
+	border-radius: 4px;
+	font-size: 20px !important;
+	position: relative;
+	top: -3px;
+	background-color: #6cb4b7;
+}
+
+.fa-rss-square {
+	color: #ef802e;
+}
+
+#block-social-links-social-links-footer .title {
+	font-family: Roboto;
+	font-size: 13px;
+	font-weight: normal;
+	color: #000000;
+}
+
+#block-social-links-social-links-footer p {
+	font-family: 'Open Sans', sans-serif;
+	font-size: 13px;
+}

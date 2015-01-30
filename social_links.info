@@ -1,0 +1,8 @@
+name = Social Links
+description = Creates a block with social links using Font Awesome
+package = Social
+dependencies[] = fontawesome
+core = 7.x
+configure = admin/config/system/settings
+
+stylesheets[all][] = includes/social_links.css
