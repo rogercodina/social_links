@@ -44,7 +44,7 @@ function social_links_menu(){
  */
 function social_links_block_info() {
   $blocks['social_links_footer'] = array(
-      'info' => t('Social links footer'),
+      'info' => t('Social links block'),
       'cache' => DRUPAL_NO_CACHE,
   );
   return $blocks;
@@ -55,7 +55,8 @@ function social_links_block_info() {
  */
 function social_links_block_view($delta = '') {
 
-  $nets = array('twitter' => variable_get('social_links_twitter', ''),
+  $nets = array('facebook' => variable_get('social_links_facebook', ''),
+                'twitter' => variable_get('social_links_twitter', ''),
                 'linkedin' => variable_get('social_links_linkedin', ''),
                 'delicious' => variable_get('social_links_delicious', ''),
                 'flickr' => variable_get('social_links_flickr', ''),
@@ -63,7 +64,8 @@ function social_links_block_view($delta = '') {
                 'youtube' => variable_get('social_links_youtube', ''),
                 'slideshare' => variable_get('social_links_slideshare', ''));
 
-  $fa = array('twitter' => 'fa-twitter-square',
+  $fa = array('facebook' => 'fa-facebook-square',
+              'twitter' => 'fa-twitter-square',
               'linkedin' => 'fa-linkedin-square',
               'delicious' => 'fa-delicious',
               'flickr' => 'fa-flickr',
@@ -85,11 +87,18 @@ function social_links_block_view($delta = '') {
   $block = array();
   switch ($delta) {
     case 'social_links_footer':
+          $show_title = variable_get('social_links_label_enabled', 1);
+          if ($show_title == 1) {
+            $title = t(variable_get('social_links_label', 'Follow us on...'));
+          }
+          else {
+            $title = '';
+          }
           $block['subject'] = '';
           $block['content'] = '
           <div class="social-links-footer">
-          	  <label class="title">' . t('Follow us on...') . '</label>
-          	  <div class="fila">' . $links . '</div>
+          	  <label class="title">' . $title . '</label>
+          	  <div class="fila row-social-links">' . $links . '</div>
           </div>
           ';
         break;

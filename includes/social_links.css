@@ -1,5 +1,7 @@
 /* http://stackoverflow.com/questions/24018051/2-vertical-background-colors-for-a-font-icon */
 
+/* Buttons */
+
 .fa-twitter-square {
 	color: #25a8e0;
 }
@@ -47,4 +49,14 @@
 
 .fa-rss-square {
 	color: #ef802e;
+}
+
+/* General */
+
+.row-social-links>a {
+	margin-right: 5px;
+}
+
+.row-social-links>a:last-child {
+	margin-right: 0px;
 }

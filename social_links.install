@@ -1,0 +1,22 @@
+<?php
+
+/**
+ * @file
+ * Install and uninstall handling of module.
+ */
+
+/**
+ * Implements hook_uninstall().
+ */
+function social_links_uninstall() {
+  variable_del('social_links_label');
+  variable_del('social_links_label_enabled');
+  variable_del('social_links_facebook');
+  variable_del('social_links_twitter');
+  variable_del('social_links_linkedin');
+  variable_del('social_links_delicious');
+  variable_del('social_links_flickr');
+  variable_del('social_links_vimeo');
+  variable_del('social_links_youtube');
+  variable_del('social_links_slideshare');
+}
