@@ -92,5 +92,12 @@ function social_links_admin_settings() {
     '#default_value' => variable_get('social_links_slideshare', ''),
   );
 
+  $form['social_nets']['social_links_instagram'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Instagram'),
+    '#description' => t('Leave empty to hide link'),
+    '#default_value' => variable_get('social_links_instagram', ''),
+  );
+
   return system_settings_form($form, TRUE);
 }
