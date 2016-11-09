@@ -98,6 +98,13 @@ function social_links_admin_settings() {
     '#description' => t('Leave empty to hide link'),
     '#default_value' => variable_get('social_links_instagram', ''),
   );
+  
+  $form['social_nets']['social_links_googlep'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Google+'),
+    '#description' => t('Leave empty to hide link'),
+    '#default_value' => variable_get('social_links_googlep', ''),
+  );
 
   return system_settings_form($form, TRUE);
 }

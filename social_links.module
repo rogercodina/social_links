@@ -63,7 +63,8 @@ function social_links_block_view($delta = '') {
                 'vimeo' => variable_get('social_links_vimeo', ''),
                 'youtube' => variable_get('social_links_youtube', ''),
                 'slideshare' => variable_get('social_links_slideshare', ''),
-                'instagram' => variable_get('social_links_instagram', ''));
+                'instagram' => variable_get('social_links_instagram', ''),
+                'googlep' => variable_get('social_links_googlep', ''));
 
   $fa = array('facebook' => 'fa-facebook-square',
               'twitter' => 'fa-twitter-square',
@@ -73,7 +74,8 @@ function social_links_block_view($delta = '') {
               'vimeo' => 'fa-vimeo-square',
               'youtube' => 'fa-youtube-square',
               'slideshare' => 'fa-slideshare',
-              'instagram' => 'fa-instagram'); 
+              'instagram' => 'fa-instagram',
+              'googlep' => 'fa-google-plus'); 
 
   $template = '<a target="_blank" href="URL"><i class="fa FA_CLASS fa-2x"></i></a>';
 
